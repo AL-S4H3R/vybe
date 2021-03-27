@@ -1,7 +1,10 @@
 import React from 'react'
+// import { useWeb3 } from '../../context/Web3Context'
 
 const Navbar: React.FC = () => {
 
+    // const { ethAccount, web3Instance } = useWeb3()
+    
     return(
         <nav className="px-8 py-4 flex item-center justify-between">
             <div>

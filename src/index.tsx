@@ -8,12 +8,14 @@ import WalletConnect from './views/WalletConnect'
 
 const App: React.FC = () => (
     <Fragment>
+      <Web3ContextProvider>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/wallet" component={WalletConnect} />
         </Switch>
       </BrowserRouter>
+      </Web3ContextProvider>
     </Fragment>
 )
 

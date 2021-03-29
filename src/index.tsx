@@ -3,19 +3,18 @@ import { render } from 'react-dom'
 import './index.css'
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import Landing from './views/Landing'
-import Web3ContextProvider from './context/Web3Context'
 import WalletConnect from './views/WalletConnect'
+import Auth from './views/Auth'
 
 const App: React.FC = () => (
     <Fragment>
-      <Web3ContextProvider>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/wallet" component={WalletConnect} />
+          <Route path="/auth" component={Auth} />
         </Switch>
       </BrowserRouter>
-      </Web3ContextProvider>
     </Fragment>
 )
 

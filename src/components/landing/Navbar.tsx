@@ -1,10 +1,12 @@
 import React from 'react'
-// import { useWeb3 } from '../../context/Web3Context'
+import { useHistory } from 'react-router'
 
 const Navbar: React.FC = () => {
-
-    // const { ethAccount, web3Instance } = useWeb3()
     
+    const history = useHistory()
+
+    const gotoDashboard = async () => { }
+
     return(
         <nav className="px-8 py-4 flex item-center justify-between">
             <div>
@@ -13,6 +15,7 @@ const Navbar: React.FC = () => {
             <div className="font-mono">
                 <button 
                     className="bg-gray-900 px-3 py-2 text-gray-100"
+                    onClick={gotoDashboard}
                 >
                     Mint NFT
                 </button>

@@ -5,12 +5,14 @@ import { auth } from '../config/firebase'
 interface UserState {
     user: firebase.User | null,
     loginWithEmail: (email: string, password: string) => Promise<firebase.auth.UserCredential> | null,
-    logout: () => Promise<void> | void
+    createUser: (email: string, password: string) => Promise<firebase.auth.UserCredential> | null
+    logout: () => Promise<void> | void;
 }
 
 const init: UserState = {
     user: null,
     loginWithEmail: (email: string, password: string) => null,
+    createUser: (email: string, password: string) => null,
     logout: () => {}
 }
 
@@ -32,10 +34,17 @@ const UserContextProvider: React.FC = ({children}) => {
         return unsubscribe
     }, [])
     
+    //email sign in
     const loginWithEmail = (email: string, password: string) => {
         return auth.signInWithEmailAndPassword(email, password)
     }
 
+    //create new user
+    const createUser = (email: string, password: string) => {
+        return auth.createUserWithEmailAndPassword(email, password)
+    }
+
+    //sign out
     const logout = () => {
         return auth.signOut()
     }
@@ -43,7 +52,8 @@ const UserContextProvider: React.FC = ({children}) => {
     const values: UserState = {
         user: currentUser,
         loginWithEmail,
-        logout
+        logout, 
+        createUser
     }
 
     return(

@@ -8,16 +8,20 @@ const Hero: React.FC = () => {
     const history = useHistory()
 
     return(
-        <section className="px-8 py-4 space-y-4">
-            <div className="font-mono space-y-4">
-                <h1 className="font-semibold text-3xl text-center">Vybe For Artists.</h1> 
-                <img src={art} alt=""/>
-            </div>
-            <div className="font-mono">
-                <p className="text-center text-gray-800">{msg}</p>
-            </div>
-            <div className="flex justify-center font-mono">
-                <button onClick={() => history.push('/dashboard')} className="bg-gray-800 text-gray-200 px-3 py-2">Start Vybing</button>
+        <section className="px-8 py-4">
+            <div className="lg:flex space-y-4">
+                <div className="font-mono space-y-4">
+                    <h1 className="font-semibold text-3xl text-center">Vybe For Artists.</h1> 
+                    <img src={art} alt=""/>
+                </div>
+                <div className="lg:flex">
+                    <div className="font-mono space-y-4">
+                        <p className="lg:mt-24 lg:px-4 text-center text-gray-800 lg:text-3xl">{msg}</p>
+                        <div className="flex justify-center font-mono">
+                            <button onClick={() => history.push('/dashboard')} className="bg-gray-800 text-gray-200 px-3 py-2">Start Vybing</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     )

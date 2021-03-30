@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
     const gotoDashboard = async () => { }
 
     return(
-        <nav className="px-8 py-4 flex item-center justify-between">
+        <nav className="lg:px-16 px-8 py-4 flex item-center justify-between">
             <div>
                 <h1 className="font-mono text-3xl">vybe</h1>
             </div>

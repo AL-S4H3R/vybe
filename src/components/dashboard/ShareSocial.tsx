@@ -4,7 +4,7 @@ import { FacebookIcon, FacebookShareButton, InstapaperIcon, InstapaperShareButto
 const ShareSocial: React.FC = () => {
 
     const quote = `Turn your designs into digital art. Start Vybing Now!`
-    const url = ``
+    const url = `http://localhost:3000`
 
     return(
         <section className="px-8 py-4 flex justify-between space-x-4">
@@ -42,6 +42,7 @@ const ShareSocial: React.FC = () => {
                 <TwitterShareButton 
                     url={url}
                     color="black"
+                    title="Join Vybe. NFT's done right."
                 >
                     <TwitterIcon size={32} round={true} color={"black"}></TwitterIcon>
                 </TwitterShareButton>

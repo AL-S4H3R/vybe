@@ -6,11 +6,12 @@ import { BrowserRouter, Switch, Route} from 'react-router-dom'
 //views
 import Landing from './views/Landing'
 import WalletConnect from './views/WalletConnect'
-import Auth from './views/Auth'
+import Login from './views/Login'
 
 //context
 import AuthContextProvider from './context/AuthContext'
 import Dashboard from './views/Dashboard'
+import Signup from './views/Signup'
 
 const App: React.FC = () => (
     <Fragment>
@@ -19,7 +20,8 @@ const App: React.FC = () => (
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/wallet" component={WalletConnect} />
-          <Route path="/auth" component={Auth} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
           <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </BrowserRouter>

@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
                 <p className="text-center text-gray-800">{msg}</p>
             </div>
             <div className="flex justify-center font-mono">
-                <button onClick={() => history.push('/auth')} className="bg-gray-800 text-gray-200 px-3 py-2">Start Vybing</button>
+                <button onClick={() => history.push('/dashboard')} className="bg-gray-800 text-gray-200 px-3 py-2">Start Vybing</button>
             </div>
         </section>
     )

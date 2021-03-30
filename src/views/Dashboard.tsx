@@ -1,9 +1,12 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 import { useAuth } from '../context/AuthContext'
 
 const Dashboard: React.FC = () => {
 
-    const { user } = useAuth()
+    const { user, logout } = useAuth()
+    const history = useHistory()
+
     return(
         <div>
             <nav className="px-8 py-4">
@@ -22,6 +25,12 @@ const Dashboard: React.FC = () => {
                 <p className="text-center text-lg font-semibold">
                     App Goes Live Soon
                 </p>
+                <footer>
+                    <button onClick={async () => {
+                        await logout()
+                        history.push('/')
+                    }}>Sign out</button>
+                </footer>
             </section>
         </div>
     )

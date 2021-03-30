@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { render } from 'react-dom'
 import './index.css'
-import { BrowserRouter, Switch, Route} from 'react-router-dom'
+import { BrowserRouter, Switch, Route, useHistory} from 'react-router-dom'
 
 //views
 import Landing from './views/Landing'
@@ -12,6 +12,8 @@ import Login from './views/Login'
 import AuthContextProvider from './context/AuthContext'
 import Dashboard from './views/Dashboard'
 import Signup from './views/Signup'
+import PrivateRoute from './routes/PrivateRoute'
+
 
 const App: React.FC = () => (
     <Fragment>
@@ -22,7 +24,7 @@ const App: React.FC = () => (
           <Route path="/wallet" component={WalletConnect} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/dashboard" component={Dashboard} />
+          <PrivateRoute component={Dashboard} path="/dashboard"/>
         </Switch>
       </BrowserRouter>
       </AuthContextProvider>

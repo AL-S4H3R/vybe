@@ -1,11 +1,9 @@
 import React from 'react'
 import { useHistory } from 'react-router'
+import ShareSocial from '../components/dashboard/ShareSocial'
 import { useAuth } from '../context/AuthContext'
 
 const Dashboard: React.FC = () => {
-
-    const { user, logout } = useAuth()
-    const history = useHistory()
 
     return(
         <div>
@@ -29,6 +27,9 @@ const Dashboard: React.FC = () => {
                     App Goes Live Soon
                 </p>
             </section>
+            </div>
+            <div>
+                <ShareSocial />
             </div>
         </div>
     )

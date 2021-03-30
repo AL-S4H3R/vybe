@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router'
+import { Redirect, useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
@@ -7,7 +7,7 @@ const Auth: React.FC = () => {
 
     const [email, setEmail] = React.useState('')
 
-    const { loginWithEmail } = useAuth()
+    const { loginWithEmail, user } = useAuth()
     const history = useHistory()
 
     //password ref
@@ -24,6 +24,9 @@ const Auth: React.FC = () => {
         }
     }
 
+    if(user){
+        <Redirect to="/dashboard" />
+    }
     return(
         <div className="h-screen w-screen">
             <nav className="px-8 py-4 font-mono">

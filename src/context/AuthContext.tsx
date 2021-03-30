@@ -24,15 +24,26 @@ export const useAuth = () => {
 
 const UserContextProvider: React.FC = ({children}) => {
     
-    const [currentUser, setCurrentUser] = React.useState<firebase.User | null>(null)
-    
+    const [currentUser, setCurrentUser] = React.useState<firebase.User | null>(
+        //@ts-ignore
+        JSON.parse(localStorage.getItem('current_user'))
+    )
+
+    React.useEffect(() => {
+        var user = localStorage.getItem('current_user')
+        if(user){
+            setCurrentUser(JSON.parse(user))
+        }
+    }, [])
+
     //component re-renders when auth changes
     React.useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
+            localStorage.setItem('current_user', JSON.stringify(user))
         })
         return unsubscribe
-    }, [])
+    }, [currentUser])
     
     //email sign in
     const loginWithEmail = (email: string, password: string) => {

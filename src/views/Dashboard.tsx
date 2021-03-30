@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
                 </p>
             </section>
             </div>
-            <div>
+            <div className="flex justify-center">
                 <ShareSocial />
             </div>
         </div>

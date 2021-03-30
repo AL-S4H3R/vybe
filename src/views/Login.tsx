@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 const Auth: React.FC = () => {
@@ -28,7 +29,8 @@ const Auth: React.FC = () => {
             <nav className="px-8 py-4 font-mono">
                 <h1 className="text-center font-mono text-3xl">vybe</h1>
             </nav>
-            <section className="px-8 py-4 space-y-8">
+            <div className="lg:flex lg:justify-center ">
+            <section className="px-8 py-4 space-y-8 lg:w-1/3">
                 <div className="space-y-8">
                     <div className="flex justify-center">
                         <input 
@@ -56,6 +58,10 @@ const Auth: React.FC = () => {
                     <button onClick={login} className="w-1/2 px-2 py-1 rounded-md bg-black font-mono text-gray-200 focus:outline-none">Login</button>
                 </div>
             </section>
+            </div>
+            <div className="flex justify-center font-mono hover:underline">
+                <Link to="/signup">Need an account? Signup Here</Link>
+            </div>
             <footer className="mt-8">
                 <p className="text-sm text-center text-gray-600 font-mono">
                     &copy; vybe inc. 2021

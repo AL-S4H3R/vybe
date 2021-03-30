@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 const Signup: React.FC = () => {
@@ -10,8 +11,10 @@ const Signup: React.FC = () => {
     const { createUser } = useAuth()
 
     const [error, setError] = React.useState<string | null>(null)
+    var history = useHistory()
     
     const signup = async () => {
+        
         var email = emailRef.current?.value
         var password = passwordRef.current?.value
         var username = usernameRef.current?.value
@@ -20,6 +23,9 @@ const Signup: React.FC = () => {
             try {
                 var res = await createUser(email, password) 
                 console.log(res)
+                if(res?.user){
+                    history.push('/dashboard')
+                }
             }
             catch(err){
                 setError(err.msg)
@@ -30,11 +36,12 @@ const Signup: React.FC = () => {
         }
     }
     return(
-        <div className="h-screen w-screen">
+        <div className="h-screen w-screen lg:border">
             <nav className="px-8 py-4 font-mono">
                 <h1 className="text-center font-mono text-3xl">vybe</h1>
             </nav>
-            <section className="px-8 py-4 space-y-8 max-w-sm">
+            <div className="lg:flex lg:justify-center ">
+            <section className="px-8 py-4 space-y-8 lg:w-1/3">
                 <div className="space-y-8">
                     <div className="flex justify-center">
                         <input 
@@ -73,6 +80,10 @@ const Signup: React.FC = () => {
                     </button>
                 </div>
             </section>
+            </div>
+            <div className="flex justify-center font-mono hover:underline">
+                <Link to="/login">Have an account? Login Here</Link>
+            </div>
             <footer className="mt-8">
                 <p className="text-sm text-center text-gray-600 font-mono">
                     &copy; vybe inc. 2021

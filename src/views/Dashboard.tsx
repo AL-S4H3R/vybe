@@ -10,9 +10,12 @@ const Dashboard: React.FC = () => {
     return(
         <div>
             <nav className="px-8 py-4">
-                <h1 className="text-xl underline text-center font-mono text-gray-700">welcome to vybe</h1>
+                <h1 className="text-xl underline text-center font-mono text-gray-700">
+                    welcome to vybe
+                </h1>
             </nav>
-            <section className="font-mono px-8 py-4 space-y-8 text-gray-700">
+            <div className="lg:flex lg:justify-center">
+            <section className="font-mono px-8 py-4 space-y-8 text-gray-700 lg:w-1/3">
                 <div>
                     <p className="text-center text-2xl">With Vybe, you can mint your digital NFT's (all for $0.)</p>
                 </div>
@@ -25,13 +28,8 @@ const Dashboard: React.FC = () => {
                 <p className="text-center text-lg font-semibold">
                     App Goes Live Soon
                 </p>
-                <footer>
-                    <button onClick={async () => {
-                        await logout()
-                        history.push('/')
-                    }}>Sign out</button>
-                </footer>
             </section>
+            </div>
         </div>
     )
 }

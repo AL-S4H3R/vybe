@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { firebaseRef } from '../config/firebase'
 
 const Signup: React.FC = () => {
 
@@ -24,6 +25,10 @@ const Signup: React.FC = () => {
                 var res = await createUser(email, password) 
                 console.log(res)
                 if(res?.user){
+                    //create a firestore collection with firebase uid & username
+                    var userRef = await firebaseRef.collection('users').doc(res.user.uid).set({
+                        username: username
+                    })
                     history.push('/dashboard')
                 }
             }

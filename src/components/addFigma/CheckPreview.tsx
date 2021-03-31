@@ -9,9 +9,9 @@ const CheckPreview: React.FC = () => {
                 <div className="flex justify-center">
                     <img src={imageUrl} alt="" className="h-max w-max"/>
                 </div>
-                <div className="justify-center flex">
+                {/* <div className="justify-center flex">
                     <button className="px-2 py-1 bg-gray-900 text-gray-200">Save </button>
-                </div>
+                </div> */}
             </section>
         )
     }

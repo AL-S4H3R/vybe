@@ -2,6 +2,7 @@ import React from 'react'
 import firebase from 'firebase/app'
 import 'firebase/analytics'
 import 'firebase/auth'
+import 'firebase/firestore'
 
 export var firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -17,3 +18,4 @@ export var firebaseConfig = {
 var app = firebase.initializeApp(firebaseConfig)
 export const auth = app.auth()
 export const analytics = app.analytics()
+export const firebaseRef = app.firestore()

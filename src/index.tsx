@@ -7,12 +7,15 @@ import { BrowserRouter, Switch, Route, useHistory} from 'react-router-dom'
 import Landing from './views/Landing'
 import WalletConnect from './views/WalletConnect'
 import Login from './views/Login'
+import Dashboard from './views/Dashboard'
+import Signup from './views/Signup'
+import AddFigmaFile from './views/AddFigmaFile'
+
+//private route
+import PrivateRoute from './routes/PrivateRoute'
 
 //context
 import AuthContextProvider from './context/AuthContext'
-import Dashboard from './views/Dashboard'
-import Signup from './views/Signup'
-import PrivateRoute from './routes/PrivateRoute'
 
 
 const App: React.FC = () => (
@@ -25,6 +28,7 @@ const App: React.FC = () => (
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <PrivateRoute component={Dashboard} path="/dashboard"/>
+          <PrivateRoute component={AddFigmaFile} path="/add"/>
         </Switch>
       </BrowserRouter>
       </AuthContextProvider>

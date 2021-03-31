@@ -3,10 +3,12 @@ import { getImageUrl } from '../api/figma'
 
 interface IFigma {
     imageUrl: string | null;
+    setImage: (url: string) => Promise<void> | void
 }
 
 const initState: IFigma = {
-    imageUrl: ''
+    imageUrl: '',
+    setImage: () => {}
 }
 
 const FigmaContext = React.createContext(initState)
@@ -26,7 +28,8 @@ const FigmaContextProvider: React.FC = ({children}) => {
     }
 
     const values: IFigma = {
-        imageUrl: imgUrl
+        imageUrl: imgUrl,
+        setImage
     }
    
     return(

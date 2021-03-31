@@ -16,11 +16,13 @@ import PrivateRoute from './routes/PrivateRoute'
 
 //context
 import AuthContextProvider from './context/AuthContext'
+import FigmaContextProvider from './context/FigmaContext'
 
 
 const App: React.FC = () => (
     <Fragment>
       <AuthContextProvider>
+      <FigmaContextProvider>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Landing} />
@@ -31,6 +33,7 @@ const App: React.FC = () => (
           <PrivateRoute component={AddFigmaFile} path="/add"/>
         </Switch>
       </BrowserRouter>
+      </FigmaContextProvider>
       </AuthContextProvider>
     </Fragment>
 )

@@ -14,17 +14,43 @@ const InputForm: React.FC = () => {
     return(
         <section className="font-mono space-y-16">
             <div>
-                <h1 className="font-semibold text-gray-500 text-center text-3xl">Create your super rare token.</h1>
+                <h1 className="font-semibold text-gray-500 text-center text-3xl">
+                    Create your super rare token.
+                </h1>
             </div>
-            <div>
-                <label htmlFor="">Add File:</label>
-                <div>
-                    <input 
-                        type="file" 
-                        name="file"
-                        id="file"
-                        onChange={(e) => onFileUpload(e)}    
-                    />
+            <div className="flex justify-center">
+                <div className="space-y-4">
+                    <div className="space-y-4">
+                        <label htmlFor="">Name your token:</label>
+                        <div>
+                            <input 
+                                type="text" 
+                                className="bg-gray-100 px-2 py-1"
+                                placeholder="My Mona Lisa"
+                            />
+                        </div>
+                    </div>
+                    <div className="space-y-4">
+                        <label htmlFor="">Royalties:</label>
+                        <div>
+                            <input 
+                                type="number" 
+                                className="bg-gray-100 px-2 py-1"
+                                placeholder="10%, 20% etc."
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <input 
+                            type="file" 
+                            name="nft" 
+                            id="nft"
+                            onChange={(e) => onFileUpload(e)}
+                        />
+                    </div>
+                    <div>
+                        <button className="p-1 bg-gray-800 text-gray-200">Create Token</button>
+                    </div>
                 </div>
             </div>
         </section>

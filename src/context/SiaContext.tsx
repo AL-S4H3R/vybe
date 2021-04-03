@@ -1,5 +1,6 @@
 import React from 'react'
+//@ts-expect-error
 import { SkynetClient } from 'skynet-js'
 
-const client = new SkynetClient()
-
+const portal = `https://siasky.net`
+const client = new SkynetClient(portal)

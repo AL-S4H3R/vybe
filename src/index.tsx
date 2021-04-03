@@ -10,6 +10,7 @@ import Login from './views/Login'
 import Dashboard from './views/Dashboard'
 import Signup from './views/Signup'
 import AddFigmaFile from './views/AddFigmaFile'
+import CreateNFT from './views/CreateNFT'
 
 //private route
 import PrivateRoute from './routes/PrivateRoute'
@@ -31,6 +32,7 @@ const App: React.FC = () => (
           <Route path="/signup" component={Signup} />
           <PrivateRoute component={Dashboard} path="/dashboard"/>
           <PrivateRoute component={AddFigmaFile} path="/add"/>
+          <PrivateRoute component={CreateNFT} path="/create"/>
         </Switch>
       </BrowserRouter>
       </FigmaContextProvider>

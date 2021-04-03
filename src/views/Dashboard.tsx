@@ -27,6 +27,11 @@ const Dashboard: React.FC = () => {
                 <h1 className="text-xl underline text-center font-mono text-gray-700">
                      welcome to vybe
                 </h1>
+                <div className="flex items-center">
+                    <Link to="/create" className="bg-gray-900 px-2 text-gray-100 py-1">
+                        Mint NFT
+                    </Link>
+                </div>
                 <button onClick={logout}>
                     Logout
                 </button>

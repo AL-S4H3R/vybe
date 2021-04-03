@@ -1,4 +1,5 @@
 import React from 'react'
+import { skyClient } from '../../config/skynet'
 
 const InputForm: React.FC = () => {
 
@@ -9,6 +10,12 @@ const InputForm: React.FC = () => {
         const file = event.target.files[0]
         console.log(file)
         setCurrentFile(file)
+    }
+
+    const uploadToSkynet = async (file: File) => {
+        const { skylink } = await skyClient.uploadFile(file)
+        const skyUrl = await skyClient.getSkylinkUrl(skylink)
+        console.log(skyUrl)
     }
 
     return(
@@ -49,7 +56,7 @@ const InputForm: React.FC = () => {
                         />
                     </div>
                     <div>
-                        <button className="p-1 bg-gray-800 text-gray-200">Create Token</button>
+                        <button onClick={() => uploadToSkynet(currentFile)} className="p-1 bg-gray-800 text-gray-200">Create Token</button>
                     </div>
                 </div>
             </div>
